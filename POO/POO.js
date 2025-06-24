@@ -45,29 +45,35 @@
 
 
 //              Ejercicio del sistema de biblioteca
-
-class Libro{
-    constructor(titulo,autor,isbn,disponible,limiteLibros){
-        this.titulo = titulo
-        this.autor = autor
-        this.isbn = isbn
-        this.disponible = disponible
-        this.limiteLibros = limiteLibros
+class Biblioteca{
+    constructor(nombre,libros,usuarios){
+        this.nombre = nombre
+        this.libros = libros
+        this.usuarios = usuarios
     }
-    PrestarLibro(){
-        if(this.limiteLibros<10 && this.disponible == true){
-            return true
+    agregarLibro(libro){
+        this.libros.push(libro)
+    }
+    agregarUsuario(usuario){
+        this.usuarios.push(usuario)
+    }
+    buscarLibro(titulo,autor){
+        for(let libro of this.libros){
+            if(libro.titulo == titulo && libro.autor == autor){
+                return libro
+            }
         }
-        else{
-            return false
-        }
+        return null
     }
 }
 
-let elPrincipito = new Libro("El principito","nose","1234567",true,3)
-let maestroDeLaFuga = new Libro("maestro de la fuga","nose","111111",true,3)
-console.log(Libro)
-
+class Libro{
+    constructor(titulo,autor,isbn){
+        this.titulo = titulo
+        this.autor = autor
+        this.isbn = isbn
+    }
+}
 
 class Usuario{
     constructor(nombre,email,librosPrestados,cantidadLibros){
@@ -76,9 +82,14 @@ class Usuario{
         this.librosPrestados = librosPrestados
         this.cantidadLibros = cantidadLibros
     }
-    buscarLibro(titulo,autor){
-        if(titulo==Libro.titulo && autor==Libro.autor && Libro.disponible==true){
-                    
-        }
-    }
 }
+let biblioteca = new Biblioteca("Biblioteca Central",[],[])
+let libro1 = new Libro("El señor de los anillos","J.R.R. Tolkien","978-3-16-148410-0")
+let libro2 = new Libro("1984","George Orwell","978-0-452-28423-4")
+let libro3 = new Libro("Cien años de soledad","Gabriel García Márquez","978-0-06-088328-7")
+biblioteca.agregarLibro(libro1)
+biblioteca.agregarLibro(libro2)
+biblioteca.agregarLibro(libro3)
+
+console.log(biblioteca.buscarLibro("1984","George Orwell"))
+//console.log(biblioteca)
