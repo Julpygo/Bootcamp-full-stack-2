@@ -60,7 +60,7 @@ class Biblioteca{
     buscarLibro(titulo,autor){
         for(let libro of this.libros){
             if(libro.titulo == titulo && libro.autor == autor){
-                return libro
+                return {"Disponible":true}
             }
         }
         return null
