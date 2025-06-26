@@ -1,33 +1,17 @@
-let a = [2,6,1,4]
-
-let Pini = 0
-
-function permutaInicial(a){
-    let permuta = false
-    for (i = 0;i<a.length;i++){
-        if(a[i]>a[i+1]){
-            let Pmin = i
-            let permuta = true
+let ejemplo = [1,5,5,16,7,1]
+for(let j = 0;j<ejemplo.length;j++){
+    let datoMin = ejemplo[j]
+    let posMin = j
+    for(let i=j;i<ejemplo.length;i++){
+        if(datoMin>ejemplo[i+1]){
+            datoMin = ejemplo[i+1]
+            posMin = i+1
+            console.log("dato:",datoMin,"pos:",posMin)
         }
     }
-    return {"Pmin: ":Pmin,"Permuta: ":permuta}
+    //console.log("dato:",datoMin,"pos:",posMin)
+    console.log("dato fin:",datoMin,"pos fin:",posMin)
+    ejemplo[posMin] = ejemplo[j]
+    ejemplo[j] = datoMin
+    console.log(ejemplo)
 }
-
-do{
-    let aux = a[Pini]
-    a[Pini] = a[Pmin]
-    a[Pmin] = aux
-    for (j=Pini;j<a.length-Pini;j++){
-        if(a[j]>a[j+1]){
-            var Pmin = j
-            var permuta = true
-            if(Pini=a.length-1){
-                permuta=false
-            }
-        }
-    }
-    Pini = Pini + 1
-}while(permuta = true)
-
-console.log(a)
-
