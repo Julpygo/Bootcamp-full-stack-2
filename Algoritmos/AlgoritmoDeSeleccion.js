@@ -9,7 +9,6 @@ for(let j = 0;j<ejemplo.length;j++){
             console.log("dato:",datoMin,"pos:",posMin)
         }
     }
-    //console.log("dato:",datoMin,"pos:",posMin)
     console.log("dato fin:",datoMin,"pos fin:",posMin)
     ejemplo[posMin] = ejemplo[j]
     ejemplo[j] = datoMin
