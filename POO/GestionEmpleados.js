@@ -19,7 +19,7 @@ class Empleado{
         return listaEmpleados.length
     }
     static costoEmpleados(listaCostoSalarios){
-        return listaCostoSalarios.reduce((acumulador,actual)=>acumulador+actual)
+        return listaCostoSalarios.reduce((acumulador,actual)=>acumulador+actual,0)
     }
 }
 
@@ -41,6 +41,7 @@ class Desarrollador extends Empleado{
 }
 
 let gerente1 = new Gerente("Andres Perez",2000)
+gerente1.agregarEmpleado()
 console.log(gerente1)
 
 let desarrollador1 = new Desarrollador("Julian Gómez",1000)
